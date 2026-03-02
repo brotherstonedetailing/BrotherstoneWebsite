@@ -12,7 +12,7 @@ export default function Home() {
 
         {/* Tagline / Optional */}
         <p className="text-lg mb-12 text-gold-300">
-          Shine Your Ride, Every Time
+          Shine Your Ride, Half the Time
         </p>
 
         {/* Services */}
