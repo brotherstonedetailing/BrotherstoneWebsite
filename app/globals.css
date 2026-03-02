@@ -5,22 +5,57 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Container */
+.squeezetainer {
+  padding-inline: 5vw;
+  
+}
+
+
+@media (min-width: theme("screens.lg")) {
+  .squeezetainer {
+    padding-inline: 10vw;
+  }
+}
+
+
+
+/* Button */
+.btn-primary {
+  padding-inline: 1.25rem;
+  padding-block: 0.625rem;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+
+/* Menu Button */
+.hamburger-button .hamburger {
+  transition: translate .7s, rotate .7s;
+}
+
+.hamburger-button .hamburger-close {
+  translate: 3px -3px;
+  rotate: 0.125turn;
+}
+
+.hamburger-button .line {
+  transition: .7s;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.hamburger-button .line-close {
+  stroke-dasharray: 60 105 60 300;
+  stroke-dashoffset: -90;
+}
+
