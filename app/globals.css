@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --text: #0a050a;
+  --background: #fefbfd;
+ --background2: #e0e0e0;
+  --primary: #7d6c68;
+  --secondary: #433735;
+  --accent: #b0b0b0;
 }
+
 
 body {
   background: var(--background);
@@ -58,4 +63,6 @@ body {
   stroke-dasharray: 60 105 60 300;
   stroke-dashoffset: -90;
 }
+
+
 

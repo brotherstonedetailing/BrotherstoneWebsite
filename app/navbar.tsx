@@ -1,6 +1,13 @@
 "use client";
 import React, { ReactNode, useState } from "react";
 import Link from "next/link";
+import { Sansation } from 'next/font/google'; 
+
+const sansation = Sansation({
+  weight: ['300', '400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+}); 
 
 type NavItemProps = {
   children: ReactNode;
@@ -69,17 +76,15 @@ const Navbar = () => {
           nav ? "shadow" : ""
         } flex items-center justify-between fixed z-50 w-full squeezetainer py-6 bg-white top-0 h-nav text-black`}
       >
-        <Link href="/" onClick={closeNav}>
+        <Link href="#hero" onClick={closeNav} className={sansation.className + " text-xl font-bold tracking-wide"}>
           Brotherstone
         </Link>
 
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center">
-          <NavItem href="/aboutUs">about us</NavItem>
-
-
-          <NavItem href="/donate">donate</NavItem>
-          <NavItem href="/contact">contact</NavItem>
+          <NavItem href="#about">about</NavItem>
+          <NavItem href="#pricing">pricing</NavItem>
+      
         </div>
 
         {/* HAMBURGER */}
@@ -93,23 +98,14 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col pt-[15vh] px-6 gap-8 text-lg text-black">
-          <NavItem clickFunction={closeNav} href="/">
+          <NavItem clickFunction={closeNav} href="#hero">
             home
           </NavItem>
-          <NavItem clickFunction={closeNav} href="/aboutUs">
-            about us
+          <NavItem clickFunction={closeNav} href="#about">
+            about
           </NavItem>
-          <NavItem clickFunction={closeNav} href="/currentProjects">
-            current projects
-          </NavItem>
-          <NavItem clickFunction={closeNav} href="/pastProjects">
-            past projects
-          </NavItem>
-          <NavItem clickFunction={closeNav} href="/donate">
-            donate
-          </NavItem>
-          <NavItem clickFunction={closeNav} href="/contact">
-            contact
+          <NavItem clickFunction={closeNav} href="#pricing">
+            pricing
           </NavItem>
         </div>
       </div>
