@@ -1,206 +1,162 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import './globals.css';
-import { Sansation } from 'next/font/google'; 
-
-const sansation = Sansation({
-  weight: ['300', '400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-}); 
+import PricingSection from "@/app/components/pricing-section";
+import QuoteForm from "@/app/components/quote-form";
+import TypewriterLocations from "@/app/components/typewriter-locations";
+import { BOOKING_URL, PHONE_HREF, SERVICE_AREAS } from "@/app/lib/constants";
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section id = "hero" className="relative w-full h-[100vh]">
+      <section id="hero" className="relative min-h-screen">
         <Image
           src="/hero.jpg"
           fill
-          className="object-cover"
-          alt="Pantanal Partnership hero image"
+          className="object-cover object-[center_65%]"
+          alt="Professional mobile car detailing"
           priority
         />
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
 
-        <div className="absolute inset-0 squeezetainer flex items-center justify-center">
-          <div className="flex flex-col gap-4 lg:w-[50%] font-thin" style={{ fontFamily: sansation.style.fontFamily }}>
-            <h1 className={sansation.className + ' text-[var(--text)] text-2xl lg:text-6xl font-bold tracking-wider'}>
-              BROTHERSTONE
-            </h1>
-            <p className="text-[var(--text)] text-sm lg:text-2xl">
-              Redefining car detailing in Katy TX. 
-            </p>
-            <div className="flex gap-4 text-base md:text-xl items-center">
-              <Link
-                href="/donate"
-                className="bg-[var(--primary)] hover:opacity-80 text-[var(--background)] px-5 py-2 rounded-md transition"
-              >
-                Get a Quote
-              </Link>
-              <Link
-                href="/currentProjects"
-                className="underline text-[var(--text)] hover:opacity-80 transition"
-              >
-                See pricing plans
-              </Link>
+        <div className="relative flex min-h-screen items-center justify-center text-center">
+          <div className="squeezetainer w-full">
+            <div className="mx-auto max-w-4xl">
+              <h1 className="whitespace-nowrap text-2xl font-bold uppercase leading-tight tracking-wide text-white sm:text-4xl lg:text-5xl">
+                Brotherstone Detailing
+              </h1>
+              <h2 className="mt-4 text-xl font-semibold leading-tight text-white sm:text-2xl lg:text-3xl">
+                Mobile detailing in{" "}
+                <TypewriterLocations areas={SERVICE_AREAS} />
+              </h2>
+
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href="#quote"
+                  className="rounded-md bg-[var(--primary)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--accent-light)]"
+                >
+                  Start Your Quote
+                </Link>
+                <Link
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border-2 border-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white hover:text-[var(--text)]"
+                >
+                  Book Online
+                </Link>
+                <Link
+                  href={PHONE_HREF}
+                  className="rounded-md px-4 py-3 text-sm font-semibold text-white/90 underline-offset-4 transition hover:text-white hover:underline"
+                >
+                  Call Now
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="hidden md:block bg-center bg-[url('/logo.png')] bg-contain bg-no-repeat aspect-video w-[50%]"></div>
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="squeezetainer py-[10vh] bg-[var(--background)] text-[var(--text)] font-thin" style={{ fontFamily: sansation.style.fontFamily }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section
+        id="about"
+        className="scroll-mt-28 bg-[var(--background)] py-20 text-[var(--text)]"
+      >
+        <div className="squeezetainer grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-2">
-              <span className="text-[var(--primary)] text-sm">WHO ARE WE</span>
-              <h2 className="text-3xl lg:text-4xl font-semibold">
-                About Us
-              </h2>
-            </div>
-
-            <p className="text-lg lg:text-xl">
-              We’re a locally owned mobile detailing company proudly serving Katy, Texas. 
-              Run by two brothers with a passion for clean cars and quality work, we bring
-              professional detailing straight to your driveway. Our focus is simple:
-              reliable service, honest pricing, and results that make your vehicle shine.
-            </p>
-
             <div>
-              <Link
-                href="/aboutUs"
-                className="inline-block text-[var(--background)] bg-[var(--primary)] px-5 py-3 rounded-lg hover:opacity-80 transition"
-              >
-                More about us
-              </Link>
+              <span className="text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">
+                Who Are We
+              </span>
+              <h2 className="mt-2 text-3xl font-bold lg:text-4xl">Why Choose Us</h2>
             </div>
+
+            <p className="text-lg leading-relaxed text-[var(--secondary)]">
+              We&apos;re a locally owned mobile detailing company proudly serving
+              Katy, Texas. Run by two brothers with a passion for clean cars and
+              quality work, we bring professional detailing straight to your
+              driveway. Our focus is simple: reliable service, honest pricing,
+              and results that make your vehicle shine.
+            </p>
           </div>
 
-          <div className="aspect-video relative rounded-lg overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/logo.png"
+              src="/about.jpg"
               fill
-              className="object-contain"
-              alt="About Pantanal Partnership"
+              className="object-cover"
+              alt="Brotherstone detailing team at work"
             />
           </div>
         </div>
       </section>
 
+      <PricingSection />
 
-
-      {/* PRICING PLANS */}
-      <section id="pricing" className="bg-[var(--background2)] py-[10vh] font-thin" style={{ fontFamily: sansation.style.fontFamily }}>
+      <section
+        id="testimonials"
+        className="bg-[var(--background)] py-20 scroll-mt-28"
+      >
         <div className="squeezetainer">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-[var(--text)]">
-              Pricing Plans
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-[var(--text)] lg:text-4xl">
+              What Our Clients Say
             </h2>
-            <p className="text-[var(--secondary)] mt-3">
-              Professional mobile detailing in Katy, Texas — right at your driveway.
+            <p className="mt-3 text-[var(--secondary)]">
+              Real feedback from our happy customers in Katy, Texas.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* CARD 1 */}
-            <div className="bg-[var(--background)] rounded-2xl shadow-md p-8 flex flex-col">
-              <h3 className="text-xl font-semibold mb-2 text-[var(--text)]">Basic Detail</h3>
-              <p className="text-4xl font-bold text-[var(--primary)] mb-4">$60</p>
-              <p className="text-[var(--secondary)] mb-6">
-                Exterior hand wash, wheel clean, tire shine, and quick interior wipe down.
-              </p>
-              <Link
-                href="/book"
-                className="mt-auto text-center bg-[var(--primary)] hover:opacity-80 text-[var(--background)] py-3 rounded-lg transition"
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              {
+                quote:
+                  "Brotherstone did an amazing job on my car! The attention to detail was outstanding, and my car looks brand new.",
+                name: "Jason M.",
+              },
+              {
+                quote:
+                  "Fast, reliable, and professional. I highly recommend Brotherstone for anyone who wants their car looking perfect.",
+                name: "Sarah L.",
+              },
+              {
+                quote:
+                  "The team was punctual, friendly, and my car has never looked better. Excellent service!",
+                name: "Mike R.",
+              },
+            ].map((testimonial) => (
+              <article
+                key={testimonial.name}
+                className="flex flex-col rounded-2xl border border-[var(--border)] bg-white p-8 shadow-sm"
               >
-                Book Now
-              </Link>
-            </div>
-
-            {/* CARD 2 */}
-            <div className="bg-[var(--background)] rounded-2xl shadow-lg p-8 flex flex-col border-2 border-[var(--primary)] scale-[1.02]">
-              <h3 className="text-xl font-semibold mb-2 text-[var(--text)]">Full Detail</h3>
-              <p className="text-4xl font-bold text-[var(--primary)] mb-4">$120</p>
-              <p className="text-[var(--secondary)] mb-6">
-                Complete interior deep clean plus exterior wash, wax, and tire treatment.
-              </p>
-              <Link
-                href="/book"
-                className="mt-auto text-center bg-[var(--primary)] hover:opacity-80 text-[var(--background)] py-3 rounded-lg transition"
-              >
-                Book Now
-              </Link>
-            </div>
-
-            {/* CARD 3 */}
-            <div className="bg-[var(--background)] rounded-2xl shadow-md p-8 flex flex-col">
-              <h3 className="text-xl font-semibold mb-2 text-[var(--text)]">Premium Detail</h3>
-              <p className="text-4xl font-bold text-[var(--primary)] mb-4">$200</p>
-              <p className="text-[var(--secondary)] mb-6">
-                Full detail plus paint sealant, deep carpet extraction, and premium finish.
-              </p>
-              <Link
-                href="/book"
-                className="mt-auto text-center bg-[var(--primary)] hover:opacity-80 text-[var(--background)] py-3 rounded-lg transition"
-              >
-                Book Now
-              </Link>
-            </div>
+                <div className="mb-4 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="h-4 w-4 text-amber-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="flex-1 text-[var(--secondary)]">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
+                <div className="mt-6">
+                  <span className="font-semibold text-[var(--primary)]">
+                    – {testimonial.name}
+                  </span>
+                  <p className="text-sm text-[var(--secondary)]">Katy, TX</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-            {/* TESTIMONIALS */}
-<section id="testimonials" className="bg-[var(--background)] py-[10vh] font-thin" style={{ fontFamily: sansation.style.fontFamily }}>
-  <div className="squeezetainer">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl lg:text-4xl font-semibold text-[var(--text)]">
-        What Our Clients Say
-      </h2>
-      <p className="text-[var(--secondary)] mt-3">
-        Real feedback from our happy customers in Katy, Texas.
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {/* TESTIMONIAL 1 */}
-      <div className="bg-[var(--background2)] rounded-2xl shadow-md p-8 flex flex-col">
-        <p className="text-[var(--text)] mb-6">
-          “Brotherstone did an amazing job on my car! The attention to detail was outstanding, and my car looks brand new.”
-        </p>
-        <div className="mt-auto">
-          <span className="font-semibold text-[var(--primary)]">– Jason M.</span>
-          <p className="text-[var(--secondary)] text-sm">Katy, TX</p>
-        </div>
-      </div>
-
-      {/* TESTIMONIAL 2 */}
-      <div className="bg-[var(--background2)] rounded-2xl shadow-md p-8 flex flex-col">
-        <p className="text-[var(--text)] mb-6">
-          “Fast, reliable, and professional. I highly recommend Brotherstone for anyone who wants their car looking perfect.”
-        </p>
-        <div className="mt-auto">
-          <span className="font-semibold text-[var(--primary)]">– Sarah L.</span>
-          <p className="text-[var(--secondary)] text-sm">Katy, TX</p>
-        </div>
-      </div>
-
-      {/* TESTIMONIAL 3 */}
-      <div className="bg-[var(--background2)] rounded-2xl shadow-md p-8 flex flex-col">
-        <p className="text-[var(--text)] mb-6">
-          “The team was punctual, friendly, and my car has never looked better. Excellent service!”
-        </p>
-        <div className="mt-auto">
-          <span className="font-semibold text-[var(--primary)]">– Mike R.</span>
-          <p className="text-[var(--secondary)] text-sm">Katy, TX</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <QuoteForm />
     </>
   );
 }

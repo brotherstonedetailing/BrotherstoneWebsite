@@ -1,109 +1,106 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
-import { Sansation } from 'next/font/google';
-import { FaFacebook } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import './globals.css';
-
-const sansation = Sansation({
-  weight: ['300', '400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-});
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { BOOKING_URL, CONTACT_EMAIL, SOCIAL_LINKS } from "@/app/lib/constants";
 
 const Footer = () => {
   return (
-    <div className="squeezetainer py-[10vh] bg-[var(--primary)] text-[var(--background)]">
-      <div className="w-full text-sm flex flex-col lg:flex-row sm:gap-8">
-        {/* LEFT — BUSINESS INFO */}
-        <div className="flex flex-col gap-2 md:col-span-2 basis-2/5">
-          <h2 className="font-bold">Brotherstone Auto Detailing</h2>
-          <p className="max-w-[400px]">
-            Brotherstone Auto Detailing provides professional interior and
-            exterior detailing services. We focus on high-quality care,
-            attention to detail, and restoring your vehicle to a like-new
-            finish.
+    <footer className="bg-[var(--secondary)] text-white">
+      <div className="squeezetainer py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <h2 className="text-lg font-bold">Brotherstone Auto Detailing</h2>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/80">
+              Professional interior and exterior mobile detailing across Katy
+              and surrounding areas. Quality care, honest pricing, and results
+              that make your vehicle shine.
+            </p>
+          </div>
+
+          <div>
+            <span className="text-sm font-bold uppercase tracking-wide">
+              Navigation
+            </span>
+            <nav className="mt-4 flex flex-col gap-2 text-sm text-white/80">
+              <Link href="#hero" className="hover:text-white transition-colors">
+                Home
+              </Link>
+              <Link href="#about" className="hover:text-white transition-colors">
+                About
+              </Link>
+              <Link href="#pricing" className="hover:text-white transition-colors">
+                Pricing
+              </Link>
+              <Link href="#quote" className="hover:text-white transition-colors">
+                Get a Quote
+              </Link>
+              <Link
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Book Online
+              </Link>
+            </nav>
+          </div>
+
+          <div>
+            <span className="text-sm font-bold uppercase tracking-wide">
+              Contact
+            </span>
+            <div className="mt-4 flex flex-col gap-2 text-sm text-white/80">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="hover:text-white transition-colors"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <span>Katy, Texas</span>
+            </div>
+          </div>
+        </div>
+
+        <hr className="my-8 border-white/20" />
+
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="flex items-center gap-4">
+            <Link
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="h-5 w-5 text-white/80 transition hover:scale-110 hover:text-white" />
+            </Link>
+            <Link
+              href={SOCIAL_LINKS.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-5 w-5 text-white/80 transition hover:scale-110 hover:text-white" />
+            </Link>
+            {SOCIAL_LINKS.facebook !== "#" && (
+              <Link
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="h-5 w-5 text-white/80 transition hover:scale-110 hover:text-white" />
+              </Link>
+            )}
+          </div>
+
+          <p className="text-sm text-white/60">
+            © {new Date().getFullYear()} Brotherstone Auto Detailing
           </p>
         </div>
-
-        <hr className="sm:hidden mt-4 mb-4 border-t-[1px] border-[var(--background)/40]" />
-
-        {/* RIGHT — LINKS */}
-        <div className="flex flex-col gap-4 sm:flex-row justify-between basis-3/5">
-          {/* NAVIGATION */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold">Navigation</span>
-            <Link href="#hero" className="hover:text-[var(--accent)] transition-colors">
-              home
-            </Link>
-            <Link href="#about" className="hover:text-[var(--accent)] transition-colors">
-              about us
-            </Link>
-            <Link href="#pricing" className="hover:text-[var(--accent)] transition-colors">
-              services
-            </Link>
-            <Link href="#pricing" className="hover:text-[var(--accent)] transition-colors">
-              pricing
-            </Link>
-            <Link href="#contact" className="hover:text-[var(--accent)] transition-colors">
-              contact
-            </Link>
-          </div>
-
-          {/* SERVICES */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold">Services</span>
-            <Link href="#services" className="hover:text-[var(--accent)] transition-colors">
-              interior detailing
-            </Link>
-            <Link href="#services" className="hover:text-[var(--accent)] transition-colors">
-              exterior detailing
-            </Link>
-            <Link href="#services" className="hover:text-[var(--accent)] transition-colors">
-              full detail
-            </Link>
-            <Link href="#services" className="hover:text-[var(--accent)] transition-colors">
-              paint protection
-            </Link>
-          </div>
-
-          {/* CONTACT */}
-          <div className="flex flex-col gap-3">
-            <span className="font-bold">Contact Us</span>
-            <span>brotherstoneauto@gmail.com</span>
-            <span>Houston, Texas</span>
-          </div>
-        </div>
       </div>
-
-      <hr className="mt-4 lg:mt-6 border-t-[1px] border-[var(--background)/40]" />
-
-      {/* SOCIALS */}
-      <div className="mt-4 flex items-center sm:justify-center gap-4">
-        <Link href="https://www.linkedin.com" target="_blank">
-          <FaLinkedin className="text-[var(--background)] transform transition-transform duration-150 hover:scale-110 hover:text-[var(--accent)]" />
-        </Link>
-        <Link href="https://twitter.com" target="_blank">
-          <FaXTwitter className="text-[var(--background)] transform transition-transform duration-150 hover:scale-110 hover:text-[var(--accent)]" />
-        </Link>
-        <Link href="https://www.facebook.com" target="_blank">
-          <FaFacebook className="text-[var(--background)] transform transition-transform duration-150 hover:scale-110 hover:text-[var(--accent)]" />
-        </Link>
-      </div>
-
-      <p className="pt-2 md:pt-4 sm:text-center">
-        Brotherstone Auto Detailing |{" "}
-        <Link
-          className="hover:text-[var(--accent)] transition-colors"
-          href={"/privacy-policy.pdf"}
-          target="_blank"
-        >
-          Privacy
-        </Link>
-      </p>
-    </div>
+    </footer>
   );
 };
 

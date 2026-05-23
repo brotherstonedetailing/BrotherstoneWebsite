@@ -1,68 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --text: #0a050a;
+  --text: #1a1412;
   --background: #fefbfd;
- --background2: #e0e0e0;
+  --background2: #f3f0ee;
   --primary: #7d6c68;
   --secondary: #433735;
-  --accent: #b0b0b0;
+  --accent: #b0a09c;
+  --accent-light: #c4b5b0;
+  --border: #e5dedb;
+  --navbar-height: 56px;
+  --header-offset: var(--navbar-height);
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
 }
 
-/* Container */
 .squeezetainer {
   padding-inline: 5vw;
-  
+  margin-inline: auto;
+  max-width: 1400px;
 }
 
-
-@media (min-width: theme("screens.lg")) {
+@media (min-width: 1024px) {
   .squeezetainer {
-    padding-inline: 10vw;
+    padding-inline: 8vw;
   }
 }
 
-
-
-/* Button */
-.btn-primary {
-  padding-inline: 1.25rem;
-  padding-block: 0.625rem;
-  border-radius: 9999px;
-  text-align: center;
+.form-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.btn-primary:hover {
-  opacity: 0.8;
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(125, 108, 104, 0.15);
 }
 
-
-/* Menu Button */
-.hamburger-button .hamburger {
-  transition: translate .7s, rotate .7s;
+.hamburger {
+  transition: translate 0.7s, rotate 0.7s;
 }
 
-.hamburger-button .hamburger-close {
+.hamburger-close {
   translate: 3px -3px;
   rotate: 0.125turn;
 }
 
-.hamburger-button .line {
-  transition: .7s;
+.line {
+  transition: 0.7s;
   stroke-dasharray: 60 31 60 300;
 }
 
-.hamburger-button .line-close {
+.line-close {
   stroke-dasharray: 60 105 60 300;
   stroke-dashoffset: -90;
 }
-
-
-
