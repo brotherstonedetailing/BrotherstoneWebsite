@@ -31,10 +31,10 @@ export default function Home() {
                 <TypewriterLocations areas={SERVICE_AREAS} />
               </h2>
 
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-12 flex flex-wrap items-stretch justify-center gap-3">
                 <Link
                   href="#quote"
-                  className="rounded-md bg-[var(--primary)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--accent-light)]"
+                  className="inline-flex min-w-[11.5rem] items-center justify-center rounded-md bg-[var(--primary)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--accent-light)]"
                 >
                   Start Your Quote
                 </Link>
@@ -42,13 +42,13 @@ export default function Home() {
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-md border-2 border-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white hover:text-[var(--text)]"
+                  className="inline-flex min-w-[11.5rem] items-center justify-center rounded-md border-2 border-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white hover:text-[var(--text)]"
                 >
                   Book Online
                 </Link>
                 <Link
                   href={PHONE_HREF}
-                  className="rounded-md px-4 py-3 text-sm font-semibold text-white/90 underline-offset-4 transition hover:text-white hover:underline"
+                  className="inline-flex min-w-[11.5rem] items-center justify-center rounded-md border-2 border-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white hover:text-[var(--text)]"
                 >
                   Call Now
                 </Link>

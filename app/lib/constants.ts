@@ -13,6 +13,9 @@ export const DEFAULT_SERVICE_AREA: ServiceArea = "Katy";
 export const BOOKING_URL =
   "https://app.urable.com/virtual-shop/WvUCKdrJ1Bj2PcS2pUI2";
 
+export const QUOTE_FORM_URL =
+  "https://app.urable.com/form/WvUCKdrJ1Bj2PcS2pUI2/jUNsC94g4uYHnHV62mq8";
+
 export const CONTACT_EMAIL = "brotherstoneauto@gmail.com";
 export const PHONE_NUMBER = "(281) 555-0199";
 export const PHONE_HREF = "tel:+12815550199";
@@ -137,14 +140,3 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
   },
 ];
-
-export const QUOTE_SERVICES = [
-  "Interior Detail",
-  "Full Detail",
-  "Exterior Detail",
-  "Paint Correction",
-  "Ceramic Coating",
-  "Headlight Restoration",
-  "Engine Bay Cleaning",
-  "Other",
-] as const;
