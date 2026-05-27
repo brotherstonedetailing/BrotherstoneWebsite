@@ -1,4 +1,4 @@
-import Image from "next/image";
+import BlurImage from "@/app/components/blur-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CLIENT_JOBS, getClientJob } from "@/app/lib/jobs";
@@ -37,12 +37,13 @@ export default async function JobPage({ params }: JobPageProps) {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 lg:min-h-0 lg:flex-1 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(18rem,20rem)] lg:gap-10">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:min-h-0 lg:flex-1">
             <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
-              <Image
+              <BlurImage
                 src={job.interiorImage}
                 alt={`Interior ${job.serviceType} for ${job.clientName}`}
                 fill
                 className="object-cover"
-                priority
+                loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
               />
               <figcaption className="absolute left-3 top-3 rounded-md bg-black/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                 Interior
@@ -50,12 +51,13 @@ export default async function JobPage({ params }: JobPageProps) {
             </figure>
 
             <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
-              <Image
+              <BlurImage
                 src={job.exteriorImage}
                 alt={`Exterior ${job.serviceType} for ${job.clientName}`}
                 fill
                 className="object-cover"
-                priority
+                loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
               />
               <figcaption className="absolute left-3 top-3 rounded-md bg-[var(--primary)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                 Exterior

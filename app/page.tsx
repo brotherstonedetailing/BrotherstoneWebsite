@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import BlurImage from "@/app/components/blur-image";
 import Link from "next/link";
 import PricingSection from "@/app/components/pricing-section";
 import QuoteForm from "@/app/components/quote-form";
@@ -12,12 +12,13 @@ export default function Home() {
   return (
     <>
       <section id="hero" className="relative min-h-screen">
-        <Image
+        <BlurImage
           src="/hero.jpg"
           fill
           className="object-cover object-[center_65%]"
           alt="Professional mobile car detailing"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
 
@@ -82,11 +83,13 @@ export default function Home() {
           </div>
 
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
-            <Image
+            <BlurImage
               src="/aboutUs.jpg"
               fill
               className="object-cover"
               alt="Brotherstone detailing team at work"
+              loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -115,11 +118,13 @@ export default function Home() {
                 className="flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm"
               >
                 <div className="relative aspect-[4/3]">
-                  <Image
+                  <BlurImage
                     src={job.thumbnailImage}
                     fill
                     className="object-cover"
                     alt={`${job.clientName}'s ${job.vehicle}`}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 384px"
                   />
                 </div>
 
