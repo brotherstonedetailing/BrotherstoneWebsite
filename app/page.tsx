@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <section id="hero" className="relative min-h-screen">
         <BlurImage
-          src="/aboutUs.jpg"
+          src="/hero.jpg"
           fill
           className="object-cover object-center"
           alt="Professional mobile car detailing"
