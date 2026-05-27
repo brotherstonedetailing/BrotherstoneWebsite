@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { BOOKING_URL, SOCIAL_LINKS } from "@/app/lib/constants";
@@ -23,7 +23,7 @@ const NavItem: React.FC<NavItemProps> = ({
       onClick={clickFunction}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className="px-4 text-sm tracking-wide text-[var(--text)] transition-colors hover:text-[var(--primary)]"
+      className="whitespace-nowrap px-4 text-sm tracking-wide text-[var(--text)] transition-colors hover:text-[var(--primary)]"
     >
       {children}
     </Link>
@@ -39,7 +39,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isOpen, handler }) => {
   return (
     <button
       onClick={handler}
-      className="flex h-9 w-9 items-center justify-center rounded-md text-[var(--text)] transition-colors hover:bg-[var(--background2)] md:hidden"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-[var(--text)] transition-colors hover:bg-[var(--background2)]"
       aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
     >
@@ -98,23 +98,74 @@ const SocialLinks = ({ className = "" }: { className?: string }) => (
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [isCompact, setIsCompact] = useState(true);
+  const rowRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
 
   const toggleNav = () => setNav((prev) => !prev);
   const closeNav = () => setNav(false);
 
+  useEffect(() => {
+    const row = rowRef.current;
+    const logo = logoRef.current;
+    const measure = measureRef.current;
+    if (!row || !logo || !measure) return;
+
+    const update = () => {
+      const gap = 16;
+      const needed = logo.offsetWidth + measure.offsetWidth + gap;
+      setIsCompact(needed > row.clientWidth);
+    };
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(row);
+    observer.observe(logo);
+    observer.observe(measure);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isCompact) setNav(false);
+  }, [isCompact]);
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[var(--border)] bg-white/95 backdrop-blur-sm">
-        <div className="squeezetainer grid h-[var(--navbar-height)] grid-cols-3 items-center">
+        <div
+          ref={rowRef}
+          className="squeezetainer relative flex h-[var(--navbar-height)] items-center gap-4"
+        >
           <Link
+            ref={logoRef}
             href="#hero"
             onClick={closeNav}
-            className="text-lg font-bold tracking-wide text-[var(--text)] transition-colors hover:text-[var(--primary)]"
+            className="shrink-0 text-lg font-bold tracking-wide text-[var(--text)] transition-colors hover:text-[var(--primary)]"
           >
             Brotherstone
           </Link>
 
-          <nav className="hidden items-center justify-self-center md:flex">
+          <div
+            ref={measureRef}
+            className="pointer-events-none invisible absolute left-0 top-0 flex w-max items-center"
+            aria-hidden
+          >
+            <nav className="flex items-center">
+              <NavItem href="#pricing">Services and Pricing</NavItem>
+              <NavItem href="#testimonials">Reviews</NavItem>
+              <NavItem href={BOOKING_URL} external>
+                Book Online
+              </NavItem>
+            </nav>
+            <SocialLinks />
+          </div>
+
+          <nav
+            className={`min-w-0 flex-1 items-center justify-center ${
+              isCompact ? "hidden" : "flex"
+            }`}
+          >
             <NavItem href="#pricing">Services and Pricing</NavItem>
             <NavItem href="#testimonials">Reviews</NavItem>
             <NavItem href={BOOKING_URL} external>
@@ -122,15 +173,17 @@ const Navbar = () => {
             </NavItem>
           </nav>
 
-          <div className="flex items-center justify-self-end gap-3">
-            <SocialLinks className="hidden md:flex" />
-            <MenuButton isOpen={nav} handler={toggleNav} />
+          <div className="ml-auto flex shrink-0 items-center gap-3">
+            <SocialLinks className={isCompact ? "hidden" : "flex"} />
+            {isCompact && <MenuButton isOpen={nav} handler={toggleNav} />}
           </div>
         </div>
       </header>
 
       <div
-        className={`fixed inset-x-0 top-[var(--navbar-height)] z-40 border-b border-[var(--border)] bg-white transition-all duration-200 md:hidden ${
+        className={`fixed inset-x-0 top-[var(--navbar-height)] z-40 border-b border-[var(--border)] bg-white transition-all duration-200 ${
+          isCompact ? "" : "hidden"
+        } ${
           nav
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-2 opacity-0 pointer-events-none"
