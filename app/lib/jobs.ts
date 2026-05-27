@@ -8,67 +8,51 @@ export type ClientJob = {
   duration: string;
   description: string;
   highlights: string[];
-  beforeImage: string;
-  afterImage: string;
+  thumbnailImage: string;
+  interiorImage: string;
+  exteriorImage: string;
 };
 
 export const CLIENT_JOBS: ClientJob[] = [
   {
-    slug: "jason-m",
-    clientName: "Jason M.",
+    slug: "bmw-m4",
+    clientName: "Alex R.",
     quote:
-      "Brotherstone did an amazing job on my car! The attention to detail was outstanding, and my car looks brand new.",
+      "Brotherstone transformed my M4 inside and out. The interior looks factory fresh and the paint has incredible depth.",
     serviceType: "Full Detail",
-    vehicle: "2021 Honda Accord",
+    vehicle: "BMW M4",
     location: "Katy, TX",
     duration: "4 hours",
     description:
-      "A complete interior and exterior refresh for a daily driver with heavy road grime, pet hair, and water spots on the paint.",
+      "A complete interior and exterior detail on a performance coupe, restoring the cabin and bringing the paint back to a deep, glossy finish.",
     highlights: [
-      "Deep interior vacuum and leather conditioning",
-      "Clay bar treatment and paint sealant",
-      "Wheels, tires, and door jambs fully restored",
+      "Full interior vacuum, wipe-down, and leather conditioning",
+      "Exterior hand wash, decontamination, and paint sealant",
+      "Wheels, tires, and trim dressed to a showroom finish",
     ],
-    beforeImage: "/hero.jpg",
-    afterImage: "/aboutUs.jpg",
+    thumbnailImage: "/m4thumbnail.png",
+    interiorImage: "/m4interior.png",
+    exteriorImage: "/m4exterior.png",
   },
   {
-    slug: "sarah-l",
-    clientName: "Sarah L.",
+    slug: "porsche",
+    clientName: "Jordan T.",
     quote:
-      "Fast, reliable, and professional. I highly recommend Brotherstone for anyone who wants their car looking perfect.",
-    serviceType: "Interior Detail",
-    vehicle: "2023 Toyota RAV4",
+      "Absolutely flawless work on my Porsche. Every surface was handled with care and the results speak for themselves.",
+    serviceType: "Full Detail",
+    vehicle: "Porsche",
     location: "Katy, TX",
-    duration: "2.5 hours",
+    duration: "4.5 hours",
     description:
-      "Interior-focused detail for a family SUV with sticky cup holders, stained floor mats, and a musty cabin odor.",
+      "Premium full detail for a luxury sports car, focusing on meticulous interior care and a protected, mirror-like exterior finish.",
     highlights: [
-      "Full carpet and seat extraction",
-      "Dashboard, vents, and crevices detailed",
-      "Odor-neutralizing finish with fresh cabin scent",
+      "Detailed interior cleaning of leather, carpets, and trim",
+      "Careful exterior wash with paint decontamination",
+      "Ceramic sealant applied for lasting shine and protection",
     ],
-    beforeImage: "/hero.jpg",
-    afterImage: "/aboutUs.jpg",
-  },
-  {
-    slug: "mike-r",
-    clientName: "Mike R.",
-    quote:
-      "The team was punctual, friendly, and my car has never looked better. Excellent service!",
-    serviceType: "Exterior Detail",
-    vehicle: "2019 Ford F-150",
-    location: "Katy, TX",
-    duration: "3 hours",
-    description:
-      "Exterior restoration for a work truck with baked-on brake dust, tree sap, and faded plastic trim.",
-    highlights: [
-      "Hand wash with foam pre-soak",
-      "Iron decontamination and ceramic sealant",
-      "Trim restoration and tire dressing",
-    ],
-    beforeImage: "/hero.jpg",
-    afterImage: "/aboutUs.jpg",
+    thumbnailImage: "/PorcheThumbNail.jpeg",
+    interiorImage: "/PorscheInterior.jpeg",
+    exteriorImage: "/PorscheExterior.jpeg",
   },
 ];
 

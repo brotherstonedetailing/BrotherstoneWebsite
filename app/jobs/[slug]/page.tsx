@@ -38,27 +38,27 @@ export default async function JobPage({ params }: JobPageProps) {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:min-h-0 lg:flex-1">
             <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
               <Image
-                src={job.beforeImage}
-                alt={`Before ${job.serviceType} for ${job.clientName}`}
+                src={job.interiorImage}
+                alt={`Interior ${job.serviceType} for ${job.clientName}`}
                 fill
                 className="object-cover"
                 priority
               />
               <figcaption className="absolute left-3 top-3 rounded-md bg-black/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                Before
+                Interior
               </figcaption>
             </figure>
 
             <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
               <Image
-                src={job.afterImage}
-                alt={`After ${job.serviceType} for ${job.clientName}`}
+                src={job.exteriorImage}
+                alt={`Exterior ${job.serviceType} for ${job.clientName}`}
                 fill
                 className="object-cover"
                 priority
               />
               <figcaption className="absolute left-3 top-3 rounded-md bg-[var(--primary)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                After
+                Exterior
               </figcaption>
             </figure>
           </div>

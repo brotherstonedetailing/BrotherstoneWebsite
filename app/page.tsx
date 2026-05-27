@@ -108,7 +108,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             {CLIENT_JOBS.map((job) => (
               <article
                 key={job.slug}
@@ -116,10 +116,10 @@ export default function Home() {
               >
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src="/hero.jpg"
+                    src={job.thumbnailImage}
                     fill
                     className="object-cover"
-                    alt={`${job.clientName}'s vehicle`}
+                    alt={`${job.clientName}'s ${job.vehicle}`}
                   />
                 </div>
 
