@@ -28,11 +28,12 @@ export const SOCIAL_LINKS = {
 
 export const GOOGLE_REVIEWS_URL = "#";
 
-export type VehicleTier = "coupe" | "truck";
+export type VehicleTier = "coupe" | "midsize" | "large";
 
 export const VEHICLE_TIERS: { id: VehicleTier; label: string }[] = [
   { id: "coupe", label: "Coupe / Sedan" },
-  { id: "truck", label: "Truck / SUV" },
+  { id: "midsize", label: "Small / Midsize SUV" },
+  { id: "large", label: "Truck / Large SUV" },
 ];
 
 export type PricingPlan = {
@@ -53,7 +54,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     name: "Interior Detail",
     description:
       "This is our thorough interior detailing service. Once done, your car's interior will invite you with a fresh look, smell, & feel for an amazing driving experience!",
-    prices: { coupe: "$184.99", truck: "$199.99" },
+    prices: { coupe: "$174.99", midsize: "$189.99", large: "$204.99" },
     sections: [
       {
         title: "Services Included",
@@ -78,7 +79,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     featured: true,
     description:
       "This is our full interior and exterior detail, designed to clean every inch of your car.",
-    prices: { coupe: "$229.99", truck: "$244.99" },
+    prices: { coupe: "$214.99", midsize: "$229.99", large: "$244.99" },
     sections: [
       {
         title: "INTERIOR (detailed cleaning)",
@@ -111,11 +112,11 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
   },
   {
-    id: "exterior",
-    name: "Exterior Detail",
+    id: "wash-clay-seal",
+    name: "Wash, Clay, & Seal",
     description:
       "This premium exterior detail is designed to remove micro contaminants from your cars paint, leave a silky smooth finish, and protect the paint for up to 8 months!",
-    prices: { coupe: "$114.99", truck: "$129.99" },
+    prices: { coupe: "$114.99", midsize: "$129.99", large: "$144.99" },
     sections: [
       {
         title: "Services Included",
