@@ -16,9 +16,9 @@ export type ClientJob = {
 export const CLIENT_JOBS: ClientJob[] = [
   {
     slug: "bmw-m4",
-    clientName: "Alex R.",
+    clientName: "Muhammad U.",
     quote:
-      "Brotherstone transformed my M4 inside and out. The interior looks factory fresh and the paint has incredible depth.",
+      "Jason was great, attention to detail was impressive. Got all the nooks and crannies of my interior and exterior.",
     serviceType: "Full Detail",
     vehicle: "BMW M4",
     location: "Katy, TX",
@@ -36,15 +36,15 @@ export const CLIENT_JOBS: ClientJob[] = [
   },
   {
     slug: "porsche",
-    clientName: "Jordan T.",
+    clientName: "Meredith B.",
     quote:
-      "Absolutely flawless work on my Porsche. Every surface was handled with care and the results speak for themselves.",
+      "Brotherstone did an amazing job cleaning and detailing my Porsche. Communication was exceptional and they were very professional. The cleaning was thorough and my car looks brand new. If you're looking to have your car detailed, these are the guys to use!",
     serviceType: "Full Detail",
     vehicle: "Porsche",
     location: "Katy, TX",
-    duration: "4.5 hours",
+    duration: "5 hours",
     description:
-      "Premium full detail for a luxury sports car, focusing on meticulous interior care and a protected, mirror-like exterior finish.",
+      "Complete inside and out detail for a luxury sports SUV, focusing on meticulous interior care and a protected, mirror-like exterior finish.",
     highlights: [
       "Detailed interior cleaning of leather, carpets, and trim",
       "Careful exterior wash with paint decontamination",
