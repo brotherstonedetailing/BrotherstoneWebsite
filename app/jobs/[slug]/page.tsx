@@ -20,7 +20,7 @@ export default async function JobPage({ params }: JobPageProps) {
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className="flex min-h-dvh flex-col lg:h-full lg:min-h-0">
       <header className="shrink-0 border-b border-[var(--border)] px-5 py-4 sm:px-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
           <Link
@@ -33,10 +33,10 @@ export default async function JobPage({ params }: JobPageProps) {
         </div>
       </header>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-hidden px-5 py-6 sm:px-8 sm:py-8">
-        <div className="mx-auto flex w-full max-w-7xl min-h-0 flex-1 flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(18rem,20rem)] lg:gap-10">
-          <div className="grid min-h-0 flex-1 grid-cols-1 gap-5 sm:grid-cols-2 lg:min-h-[24rem]">
-            <figure className="relative min-h-[12rem] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm sm:min-h-0">
+      <div className="flex flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-8 lg:min-h-0 lg:overflow-hidden">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 lg:min-h-0 lg:flex-1 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(18rem,20rem)] lg:gap-10">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:min-h-0 lg:flex-1">
+            <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
               <Image
                 src={job.beforeImage}
                 alt={`Before ${job.serviceType} for ${job.clientName}`}
@@ -49,7 +49,7 @@ export default async function JobPage({ params }: JobPageProps) {
               </figcaption>
             </figure>
 
-            <figure className="relative min-h-[12rem] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm sm:min-h-0">
+            <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm lg:aspect-auto lg:h-full lg:min-h-0">
               <Image
                 src={job.afterImage}
                 alt={`After ${job.serviceType} for ${job.clientName}`}
@@ -63,7 +63,7 @@ export default async function JobPage({ params }: JobPageProps) {
             </figure>
           </div>
 
-          <div className="flex min-h-0 w-full max-w-sm flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm lg:max-w-none lg:justify-self-end lg:p-6">
+          <div className="flex w-full flex-col rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm lg:min-h-0 lg:justify-self-end lg:overflow-hidden lg:p-6">
             <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
               Job Details
             </span>
@@ -93,7 +93,7 @@ export default async function JobPage({ params }: JobPageProps) {
               </div>
             </dl>
 
-            <ul className="mt-5 space-y-2 overflow-hidden text-sm text-[var(--secondary)]">
+            <ul className="mt-5 space-y-2 pb-2 text-sm text-[var(--secondary)] lg:overflow-hidden">
               {job.highlights.map((highlight) => (
                 <li key={highlight} className="flex items-start gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--primary)]" />
