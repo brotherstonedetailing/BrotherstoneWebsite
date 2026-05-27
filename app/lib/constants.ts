@@ -16,7 +16,7 @@ export const BOOKING_URL =
 export const QUOTE_FORM_URL =
   "https://app.urable.com/form/WvUCKdrJ1Bj2PcS2pUI2/jUNsC94g4uYHnHV62mq8";
 
-export const CONTACT_EMAIL = "brotherstoneauto@gmail.com";
+export const CONTACT_EMAIL = "info@brotherstonedetailing.com";
 export const PHONE_NUMBER = "(281) 555-0199";
 export const PHONE_HREF = "tel:+12815550199";
 

@@ -82,7 +82,7 @@ export default function Home() {
 
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="/about.jpg"
+              src="/aboutUs.jpg"
               fill
               className="object-cover"
               alt="Brotherstone detailing team at work"
