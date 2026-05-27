@@ -15,7 +15,7 @@ export default function Home() {
         <BlurImage
           src="/aboutUs.jpg"
           fill
-          className="object-cover object-[center_65%]"
+          className="object-cover object-center"
           alt="Professional mobile car detailing"
           priority
           sizes="100vw"
