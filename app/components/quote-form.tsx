@@ -27,7 +27,7 @@ export default function QuoteForm() {
           <iframe
             src={QUOTE_FORM_URL}
             title="Request a quote"
-            className="block h-[2200px] w-full border-0 bg-transparent lg:h-[1200px]"
+            className="block h-[1400px] w-full border-0 bg-transparent lg:h-[1200px]"
             scrolling="no"
           />
         </div>
