@@ -1,8 +1,3 @@
-export type JobImage = {
-  src: string;
-  label?: string;
-};
-
 export type ClientJob = {
   slug: string;
   clientName: string;
@@ -14,7 +9,8 @@ export type ClientJob = {
   description: string;
   highlights: string[];
   thumbnailImage: string;
-  images: JobImage[];
+  exteriorImages: string[];
+  interiorImages: string[];
 };
 
 export const CLIENT_JOBS: ClientJob[] = [
@@ -36,14 +32,8 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Engine bay cleaned and detailed",
     ],
     thumbnailImage: "/gtrExterior.jpg",
-    images: [
-      { src: "/gtrExterior.jpg", label: "Exterior" },
-      { src: "/gtrInterior.jpg", label: "Interior" },
-      { src: "/gtrWheels.jpg" },
-      { src: "/gtrCockpit.jpg" },
-      { src: "/gtrEngineBay.jpg" },
-      { src: "/gtrSeats.jpg" },
-    ],
+    exteriorImages: ["/gtrExterior.jpg", "/gtrWheels.jpg", "/gtrEngineBay.jpg"],
+    interiorImages: ["/gtrInterior.jpg", "/gtrCockpit.jpg", "/gtrSeats.jpg"],
   },
   {
     slug: "bmw-m4",
@@ -62,14 +52,8 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Wheels, tires, and trim dressed to a showroom finish",
     ],
     thumbnailImage: "/m4thumbnail.png",
-    images: [
-      { src: "/m4exterior.png", label: "Exterior" },
-      { src: "/m4interior.png", label: "Interior" },
-      { src: "/m4Rear.jpg" },
-      { src: "/m4Cockpit.jpg" },
-      { src: "/m4Wheel.jpg" },
-      { src: "/m4RearSeats.jpg" },
-    ],
+    exteriorImages: ["/m4exterior.png", "/m4Rear.jpg", "/m4Wheel.jpg"],
+    interiorImages: ["/m4interior.png", "/m4Cockpit.jpg", "/m4RearSeats.jpg"],
   },
   {
     slug: "porsche",
@@ -88,14 +72,8 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Ceramic sealant applied for lasting shine and protection",
     ],
     thumbnailImage: "/PorcheThumbNail.jpeg",
-    images: [
-      { src: "/PorscheExterior.jpeg", label: "Exterior" },
-      { src: "/PorscheInterior.jpeg", label: "Interior" },
-      { src: "/macanRear.jpg" },
-      { src: "/macanDash.jpg" },
-      { src: "/macanWheel.jpg" },
-      { src: "/macanFloor.jpg" },
-    ],
+    exteriorImages: ["/PorscheExterior.jpeg", "/macanRear.jpg", "/macanWheel.jpg"],
+    interiorImages: ["/PorscheInterior.jpeg", "/macanDash.jpg", "/macanFloor.jpg"],
   },
 ];
 
