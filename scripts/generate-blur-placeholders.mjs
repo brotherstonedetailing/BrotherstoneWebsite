@@ -17,6 +17,14 @@ const IMAGE_PATHS = [
   "/gtrCockpit.jpg",
   "/gtrSeats.jpg",
   "/gtrEngineBay.jpg",
+  "/m4Rear.jpg",
+  "/m4Wheel.jpg",
+  "/m4Cockpit.jpg",
+  "/m4RearSeats.jpg",
+  "/macanRear.jpg",
+  "/macanWheel.jpg",
+  "/macanDash.jpg",
+  "/macanFloor.jpg",
 ];
 
 async function generateBlurPlaceholders() {

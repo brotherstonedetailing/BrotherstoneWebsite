@@ -51,7 +51,7 @@ export const CLIENT_JOBS: ClientJob[] = [
     quote:
       "Jason was great, attention to detail was impressive. Got all the nooks and crannies of my interior and exterior.",
     serviceType: "Full Detail",
-    vehicle: "BMW M4",
+    vehicle: "2024 BMW M4 Competition",
     location: "Katy, TX",
     duration: "4 hours",
     description:
@@ -65,6 +65,10 @@ export const CLIENT_JOBS: ClientJob[] = [
     images: [
       { src: "/m4exterior.png", label: "Exterior" },
       { src: "/m4interior.png", label: "Interior" },
+      { src: "/m4Rear.jpg" },
+      { src: "/m4Cockpit.jpg" },
+      { src: "/m4Wheel.jpg" },
+      { src: "/m4RearSeats.jpg" },
     ],
   },
   {
@@ -73,7 +77,7 @@ export const CLIENT_JOBS: ClientJob[] = [
     quote:
       "Brotherstone did an amazing job cleaning and detailing my Porsche. Communication was exceptional and they were very professional. The cleaning was thorough and my car looks brand new. If you're looking to have your car detailed, these are the guys to use!",
     serviceType: "Full Detail",
-    vehicle: "Porsche",
+    vehicle: "2023 Porsche Macan",
     location: "Katy, TX",
     duration: "5 hours",
     description:
@@ -87,6 +91,10 @@ export const CLIENT_JOBS: ClientJob[] = [
     images: [
       { src: "/PorscheExterior.jpeg", label: "Exterior" },
       { src: "/PorscheInterior.jpeg", label: "Interior" },
+      { src: "/macanRear.jpg" },
+      { src: "/macanDash.jpg" },
+      { src: "/macanWheel.jpg" },
+      { src: "/macanFloor.jpg" },
     ],
   },
 ];
