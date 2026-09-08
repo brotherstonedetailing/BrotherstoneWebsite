@@ -38,11 +38,11 @@ export const CLIENT_JOBS: ClientJob[] = [
     thumbnailImage: "/gtrExterior.jpg",
     images: [
       { src: "/gtrExterior.jpg", label: "Exterior" },
-      { src: "/gtrWheels.jpg", label: "Wheels & Brakes" },
       { src: "/gtrInterior.jpg", label: "Interior" },
+      { src: "/gtrWheels.jpg", label: "Wheels & Brakes" },
       { src: "/gtrCockpit.jpg", label: "Cockpit" },
-      { src: "/gtrSeats.jpg", label: "Seats" },
       { src: "/gtrEngineBay.jpg", label: "Engine Bay" },
+      { src: "/gtrSeats.jpg", label: "Seats" },
     ],
   },
   {
