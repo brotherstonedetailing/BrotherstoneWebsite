@@ -111,7 +111,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {CLIENT_JOBS.map((job) => (
               <article
                 key={job.slug}

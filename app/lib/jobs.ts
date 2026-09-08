@@ -1,3 +1,8 @@
+export type JobImage = {
+  src: string;
+  label: string;
+};
+
 export type ClientJob = {
   slug: string;
   clientName: string;
@@ -9,11 +14,37 @@ export type ClientJob = {
   description: string;
   highlights: string[];
   thumbnailImage: string;
-  interiorImage: string;
-  exteriorImage: string;
+  images: JobImage[];
 };
 
 export const CLIENT_JOBS: ClientJob[] = [
+  {
+    slug: "nissan-gtr",
+    clientName: "Tom Phillips",
+    quote:
+      "An exceptional job! Will use Jason again! He removed glue from a previous wrap and cleaned spots I did not know were there. An excellent detail service. I highly recommend!",
+    serviceType: "Full Detail",
+    vehicle: "2017 Nissan GT-R Premium",
+    location: "Katy, TX",
+    duration: "4 hours",
+    description:
+      "A complete interior and exterior detail on a 2017 Nissan GT-R Premium, including a full engine bay cleaning, finished with a deep, showroom-level shine inside and out.",
+    highlights: [
+      "Full interior vacuum, wipe-down, and leather conditioning",
+      "Exterior hand wash, decontamination, and paint sealant",
+      "Wheels, tires, and trim dressed to a showroom finish",
+      "Engine bay cleaned and detailed",
+    ],
+    thumbnailImage: "/gtrExterior.jpg",
+    images: [
+      { src: "/gtrExterior.jpg", label: "Exterior" },
+      { src: "/gtrWheels.jpg", label: "Wheels & Brakes" },
+      { src: "/gtrInterior.jpg", label: "Interior" },
+      { src: "/gtrCockpit.jpg", label: "Cockpit" },
+      { src: "/gtrSeats.jpg", label: "Seats" },
+      { src: "/gtrEngineBay.jpg", label: "Engine Bay" },
+    ],
+  },
   {
     slug: "bmw-m4",
     clientName: "Muhammad U.",
@@ -31,8 +62,10 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Wheels, tires, and trim dressed to a showroom finish",
     ],
     thumbnailImage: "/m4thumbnail.png",
-    interiorImage: "/m4interior.png",
-    exteriorImage: "/m4exterior.png",
+    images: [
+      { src: "/m4exterior.png", label: "Exterior" },
+      { src: "/m4interior.png", label: "Interior" },
+    ],
   },
   {
     slug: "porsche",
@@ -51,8 +84,10 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Ceramic sealant applied for lasting shine and protection",
     ],
     thumbnailImage: "/PorcheThumbNail.jpeg",
-    interiorImage: "/PorscheInterior.jpeg",
-    exteriorImage: "/PorscheExterior.jpeg",
+    images: [
+      { src: "/PorscheExterior.jpeg", label: "Exterior" },
+      { src: "/PorscheInterior.jpeg", label: "Interior" },
+    ],
   },
 ];
 

@@ -11,6 +11,12 @@ const IMAGE_PATHS = [
   "/PorcheThumbNail.jpeg",
   "/PorscheInterior.jpeg",
   "/PorscheExterior.jpeg",
+  "/gtrExterior.jpg",
+  "/gtrWheels.jpg",
+  "/gtrInterior.jpg",
+  "/gtrCockpit.jpg",
+  "/gtrSeats.jpg",
+  "/gtrEngineBay.jpg",
 ];
 
 async function generateBlurPlaceholders() {
