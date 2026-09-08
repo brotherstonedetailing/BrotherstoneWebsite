@@ -43,19 +43,21 @@ export default async function JobPage({ params }: JobPageProps) {
               >
                 <BlurImage
                   src={image.src}
-                  alt={`${image.label} ${job.serviceType} for ${job.clientName}`}
+                  alt={`${job.vehicle} ${job.serviceType} for ${job.clientName}`}
                   fill
                   className="object-cover"
                   loading="lazy"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                 />
-                <figcaption
-                  className={`absolute left-3 top-3 rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ${
-                    index % 2 === 0 ? "bg-black/70" : "bg-[var(--primary)]"
-                  }`}
-                >
-                  {image.label}
-                </figcaption>
+                {image.label && (
+                  <figcaption
+                    className={`absolute left-3 top-3 rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ${
+                      index % 2 === 0 ? "bg-black/70" : "bg-[var(--primary)]"
+                    }`}
+                  >
+                    {image.label}
+                  </figcaption>
+                )}
               </figure>
             ))}
           </div>

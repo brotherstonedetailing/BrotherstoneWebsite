@@ -1,6 +1,6 @@
 export type JobImage = {
   src: string;
-  label: string;
+  label?: string;
 };
 
 export type ClientJob = {
@@ -20,7 +20,7 @@ export type ClientJob = {
 export const CLIENT_JOBS: ClientJob[] = [
   {
     slug: "nissan-gtr",
-    clientName: "Tom Phillips",
+    clientName: "Tom P.",
     quote:
       "An exceptional job! Will use Jason again! He removed glue from a previous wrap and cleaned spots I did not know were there. An excellent detail service. I highly recommend!",
     serviceType: "Full Detail",
@@ -39,10 +39,10 @@ export const CLIENT_JOBS: ClientJob[] = [
     images: [
       { src: "/gtrExterior.jpg", label: "Exterior" },
       { src: "/gtrInterior.jpg", label: "Interior" },
-      { src: "/gtrWheels.jpg", label: "Wheels & Brakes" },
-      { src: "/gtrCockpit.jpg", label: "Cockpit" },
-      { src: "/gtrEngineBay.jpg", label: "Engine Bay" },
-      { src: "/gtrSeats.jpg", label: "Seats" },
+      { src: "/gtrWheels.jpg" },
+      { src: "/gtrCockpit.jpg" },
+      { src: "/gtrEngineBay.jpg" },
+      { src: "/gtrSeats.jpg" },
     ],
   },
   {
