@@ -19,6 +19,7 @@ export const QUOTE_FORM_URL =
 export const CONTACT_EMAIL = "info@brotherstonedetailing.com";
 export const PHONE_NUMBER = "(832) 920-8069";
 export const PHONE_HREF = "tel:+18329208069";
+export const SMS_HREF = "sms:+18329208069";
 
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/brotherstonedetailing/",
