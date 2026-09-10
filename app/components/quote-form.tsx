@@ -17,7 +17,7 @@ const EMPTY_FORM = {
   email: "",
   vehicle: "",
   tier: VEHICLE_TIERS[0].label as string,
-  service: QUOTE_SERVICE_OPTIONS[0] as string,
+  services: [] as string[],
   city: SERVICE_AREAS[0] as string,
   zip: "",
   preferredDate: "",
@@ -33,21 +33,45 @@ export default function QuoteForm() {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [servicesError, setServicesError] = useState(false);
 
   function update<K extends keyof FormState>(field: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [field]: value }));
   }
 
+  function toggleService(service: string) {
+    setServicesError(false);
+    setForm((current) => ({
+      ...current,
+      services: current.services.includes(service)
+        ? current.services.filter((s) => s !== service)
+        : [...current.services, service],
+    }));
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // A checkbox group can't use the native `required` attribute the way the
+    // other fields do, so this is checked by hand before anything is sent.
+    if (form.services.length === 0) {
+      setServicesError(true);
+      return;
+    }
+
     setStatus("sending");
     setError("");
+
+    // The sheet has a single Service column and the Apps Script expects a
+    // `service` string, so the picked services go over as one joined value.
+    const { services, ...rest } = form;
+    const payload = { ...rest, service: services.join(", ") };
 
     try {
       const response = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
       const result = await response.json().catch(() => ({}));
 
@@ -199,23 +223,6 @@ export default function QuoteForm() {
               </select>
             </Field>
 
-            <Field label="Service you want" htmlFor="service" required>
-              <select
-                id="service"
-                name="service"
-                className="form-input"
-                required
-                value={form.service}
-                onChange={(e) => update("service", e.target.value)}
-              >
-                {QUOTE_SERVICE_OPTIONS.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </Field>
-
             <Field label="City" htmlFor="city" required>
               <select
                 id="city"
@@ -262,16 +269,60 @@ export default function QuoteForm() {
             </Field>
           </div>
 
-          <fieldset className="mt-6 rounded-xl border border-[var(--border)] bg-[var(--background2)] p-5">
-            <legend className="px-2 text-sm font-semibold text-[var(--text)]">
+          <fieldset className="mt-6">
+            <legend className="mb-1.5 block text-sm font-semibold text-[var(--text)]">
+              What are you interested in?
+              <span className="text-[var(--primary)]"> *</span>
+            </legend>
+            <p className="mb-2 text-xs text-[var(--secondary)]">
+              Pick as many as you like — we&apos;ll quote them together.
+            </p>
+            <div
+              className={`grid grid-cols-1 gap-3 rounded-xl border bg-[var(--background2)] px-5 py-4 sm:grid-cols-2 ${
+                servicesError
+                  ? "border-[var(--primary)]"
+                  : "border-[var(--border)]"
+              }`}
+            >
+              {QUOTE_SERVICE_OPTIONS.map((option) => (
+                <label
+                  key={option}
+                  className="flex items-center gap-2 text-sm text-[var(--text)]"
+                >
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value={option}
+                    checked={form.services.includes(option)}
+                    onChange={() => toggleService(option)}
+                    className="h-4 w-4 shrink-0 accent-[var(--primary)]"
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+            <div aria-live="polite">
+              {servicesError && (
+                <p className="mt-1.5 text-xs font-medium text-[var(--primary)]">
+                  Please pick at least one service.
+                </p>
+              )}
+            </div>
+          </fieldset>
+
+          {/* Kept as a fieldset/legend so screen readers tie the question to the
+              radios, but the legend sits above the box like every other label
+              rather than breaking the border the way a default legend does. */}
+          <fieldset className="mt-6">
+            <legend className="mb-1.5 block text-sm font-semibold text-[var(--text)]">
               Does the location have an outdoor water spigot and a power outlet?
               <span className="text-[var(--primary)]"> *</span>
             </legend>
-            <p className="mt-1 text-sm text-[var(--secondary)]">
+            <p className="mb-2 text-xs text-[var(--secondary)]">
               We detail at your home or office and need access to water and
               power to do the job right.
             </p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-6">
+            <div className="flex flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--background2)] px-5 py-4 sm:flex-row sm:gap-6">
               {QUOTE_UTILITY_OPTIONS.map((option) => (
                 <label
                   key={option.value}
