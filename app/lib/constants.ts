@@ -142,3 +142,16 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
   },
 ];
+
+// Service choices offered in the quote form. Derived from PRICING_PLANS so the
+// form can never drift out of sync with the packages and prices on the site.
+export const QUOTE_SERVICE_OPTIONS = [
+  ...PRICING_PLANS.map((plan) => plan.name),
+  "Not sure yet — help me choose",
+] as const;
+
+export const QUOTE_UTILITY_OPTIONS = [
+  { value: "yes", label: "Yes, both are available" },
+  { value: "no", label: "No" },
+  { value: "unsure", label: "I'm not sure" },
+] as const;
