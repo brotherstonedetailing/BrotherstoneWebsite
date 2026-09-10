@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { BOOKING_URL, CONTACT_EMAIL, SOCIAL_LINKS } from "@/app/lib/constants";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/app/lib/constants";
 
 const Footer = () => {
   return (
@@ -35,14 +35,6 @@ const Footer = () => {
               </Link>
               <Link href="#quote" className="hover:text-white transition-colors">
                 Get a Quote
-              </Link>
-              <Link
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Book Online
               </Link>
             </nav>
           </div>

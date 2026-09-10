@@ -5,7 +5,7 @@ import Link from "next/link";
 import PricingSection from "@/app/components/pricing-section";
 import QuoteForm from "@/app/components/quote-form";
 import TypewriterLocations from "@/app/components/typewriter-locations";
-import { BOOKING_URL, SERVICE_AREAS, SMS_HREF } from "@/app/lib/constants";
+import { SERVICE_AREAS, SMS_HREF } from "@/app/lib/constants";
 import { CLIENT_JOBS } from "@/app/lib/jobs";
 
 export default function Home() {
@@ -39,14 +39,6 @@ export default function Home() {
                   className="inline-flex min-w-[11.5rem] items-center justify-center rounded-md bg-[var(--primary)] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--accent-light)]"
                 >
                   Start Your Quote
-                </Link>
-                <Link
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-w-[11.5rem] items-center justify-center rounded-md border-2 border-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white hover:text-[var(--text)]"
-                >
-                  Book Online
                 </Link>
                 <Link
                   href={SMS_HREF}

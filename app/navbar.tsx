@@ -2,7 +2,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { BOOKING_URL, SOCIAL_LINKS } from "@/app/lib/constants";
+import { SOCIAL_LINKS } from "@/app/lib/constants";
 
 type NavItemProps = {
   children: ReactNode;
@@ -154,9 +154,7 @@ const Navbar = () => {
             <nav className="flex items-center">
               <NavItem href="#pricing">Services and Pricing</NavItem>
               <NavItem href="#testimonials">Reviews</NavItem>
-              <NavItem href={BOOKING_URL} external>
-                Book Online
-              </NavItem>
+              <NavItem href="#quote">Get a Quote</NavItem>
             </nav>
             <SocialLinks />
           </div>
@@ -168,9 +166,7 @@ const Navbar = () => {
           >
             <NavItem href="#pricing">Services and Pricing</NavItem>
             <NavItem href="#testimonials">Reviews</NavItem>
-            <NavItem href={BOOKING_URL} external>
-              Book Online
-            </NavItem>
+            <NavItem href="#quote">Get a Quote</NavItem>
           </nav>
 
           <div className="ml-auto flex shrink-0 items-center gap-3">
@@ -196,8 +192,8 @@ const Navbar = () => {
           <NavItem clickFunction={closeNav} href="#testimonials">
             Reviews
           </NavItem>
-          <NavItem clickFunction={closeNav} href={BOOKING_URL} external>
-            Book Online
+          <NavItem clickFunction={closeNav} href="#quote">
+            Get a Quote
           </NavItem>
           <SocialLinks className="mt-3 border-t border-[var(--border)] pt-4" />
         </nav>

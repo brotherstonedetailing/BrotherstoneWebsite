@@ -10,12 +10,6 @@ export type ServiceArea = (typeof SERVICE_AREAS)[number];
 
 export const DEFAULT_SERVICE_AREA: ServiceArea = "Katy";
 
-export const BOOKING_URL =
-  "https://app.urable.com/virtual-shop/WvUCKdrJ1Bj2PcS2pUI2";
-
-export const QUOTE_FORM_URL =
-  "https://app.urable.com/form/WvUCKdrJ1Bj2PcS2pUI2/jUNsC94g4uYHnHV62mq8";
-
 export const CONTACT_EMAIL = "info@brotherstonedetailing.com";
 export const PHONE_NUMBER = "(832) 920-8069";
 export const PHONE_HREF = "tel:+18329208069";
