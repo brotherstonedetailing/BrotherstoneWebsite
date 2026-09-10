@@ -24,16 +24,16 @@ const Footer = () => {
               Navigation
             </span>
             <nav className="mt-4 flex flex-col gap-2 text-sm text-white/80">
-              <Link href="#hero" className="hover:text-white transition-colors">
+              <Link href="/#hero" className="hover:text-white transition-colors">
                 Home
               </Link>
-              <Link href="#about" className="hover:text-white transition-colors">
+              <Link href="/#about" className="hover:text-white transition-colors">
                 About
               </Link>
-              <Link href="#pricing" className="hover:text-white transition-colors">
+              <Link href="/#pricing" className="hover:text-white transition-colors">
                 Pricing
               </Link>
-              <Link href="#quote" className="hover:text-white transition-colors">
+              <Link href="/#quote" className="hover:text-white transition-colors">
                 Get a Quote
               </Link>
             </nav>

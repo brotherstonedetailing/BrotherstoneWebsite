@@ -139,7 +139,7 @@ const Navbar = () => {
         >
           <Link
             ref={logoRef}
-            href="#hero"
+            href="/#hero"
             onClick={closeNav}
             className="shrink-0 text-lg font-bold tracking-wide text-[var(--text)] transition-colors hover:text-[var(--primary)]"
           >
@@ -152,9 +152,9 @@ const Navbar = () => {
             aria-hidden
           >
             <nav className="flex items-center">
-              <NavItem href="#pricing">Services and Pricing</NavItem>
-              <NavItem href="#testimonials">Reviews</NavItem>
-              <NavItem href="#quote">Get a Quote</NavItem>
+              <NavItem href="/#pricing">Services and Pricing</NavItem>
+              <NavItem href="/#testimonials">Reviews</NavItem>
+              <NavItem href="/#quote">Get a Quote</NavItem>
             </nav>
             <SocialLinks />
           </div>
@@ -164,9 +164,9 @@ const Navbar = () => {
               isCompact ? "hidden" : "flex"
             }`}
           >
-            <NavItem href="#pricing">Services and Pricing</NavItem>
-            <NavItem href="#testimonials">Reviews</NavItem>
-            <NavItem href="#quote">Get a Quote</NavItem>
+            <NavItem href="/#pricing">Services and Pricing</NavItem>
+            <NavItem href="/#testimonials">Reviews</NavItem>
+            <NavItem href="/#quote">Get a Quote</NavItem>
           </nav>
 
           <div className="ml-auto flex shrink-0 items-center gap-3">
@@ -186,13 +186,13 @@ const Navbar = () => {
         }`}
       >
         <nav className="squeezetainer flex flex-col gap-1 py-3">
-          <NavItem clickFunction={closeNav} href="#pricing">
+          <NavItem clickFunction={closeNav} href="/#pricing">
             Services and Pricing
           </NavItem>
-          <NavItem clickFunction={closeNav} href="#testimonials">
+          <NavItem clickFunction={closeNav} href="/#testimonials">
             Reviews
           </NavItem>
-          <NavItem clickFunction={closeNav} href="#quote">
+          <NavItem clickFunction={closeNav} href="/#quote">
             Get a Quote
           </NavItem>
           <SocialLinks className="mt-3 border-t border-[var(--border)] pt-4" />
