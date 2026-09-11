@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import JobGallery from "@/app/components/job-gallery";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,6 +10,36 @@ type JobPageProps = {
 
 export function generateStaticParams() {
   return CLIENT_JOBS.map((job) => ({ slug: job.slug }));
+}
+
+/**
+ * Job pages used to inherit the site-wide title and description, so the GT-R,
+ * M4 and Macan pages looked identical in search results and competed with each
+ * other. Each now describes its own vehicle and job.
+ */
+export async function generateMetadata({
+  params,
+}: JobPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const job = getClientJob(slug);
+
+  if (!job) return {};
+
+  const title = `${job.vehicle} ${job.serviceType} in ${job.location}`;
+  const url = `/jobs/${job.slug}`;
+
+  return {
+    title,
+    description: job.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title,
+      description: job.description,
+      url,
+      images: [{ url: job.thumbnailImage }],
+    },
+  };
 }
 
 export default async function JobPage({ params }: JobPageProps) {

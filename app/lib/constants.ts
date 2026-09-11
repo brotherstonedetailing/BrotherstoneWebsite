@@ -149,3 +149,6 @@ export const QUOTE_UTILITY_OPTIONS = [
   { value: "no", label: "No" },
   { value: "unsure", label: "I'm not sure" },
 ] as const;
+
+export const SITE_URL = "https://brotherstonedetailing.com";
+export const BUSINESS_NAME = "Brotherstone Mobile Detailing";
