@@ -148,7 +148,9 @@ export default function PricingSection() {
             </p>
           </div>
 
-          <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3">
+          {/* auto-rows-fr makes every row as tall as the tallest, so a name that
+              wraps to two lines doesn't leave the boxes different sizes. */}
+          <ul className="mx-auto grid max-w-4xl auto-rows-fr grid-cols-2 gap-3 sm:grid-cols-3">
             {ADDON_SERVICES.map((service) => (
               <li
                 key={service}

@@ -139,12 +139,15 @@ export const PRICING_PLANS: PricingPlan[] = [
 
 // Extras that can be added to any package. Priced per job rather than listed,
 // since condition varies -- the quote form is where they get costed.
+// Order matters visually: the two names long enough to wrap onto a second line
+// are kept adjacent so they share a row on the two-column mobile grid instead
+// of making two separate rows taller than the rest.
 export const ADDON_SERVICES = [
   "Carpet & Seat Extraction",
+  "Clay Bar & Decontamination",
   "Pet Hair Removal",
   "Headlight Restoration",
   "Trim Restoration",
-  "Clay Bar & Decontamination",
   "Engine Bay Cleaning",
 ] as const;
 
