@@ -18,8 +18,9 @@ import {
  * penalty. The 5.0 on the Google Business Profile already does that job in the
  * place customers actually see it.
  *
- * Also absent: openingHours, because nobody recorded what they are. Wrong hours
- * are worse than none -- customers see them in search results.
+ * Hours are 8am-8pm daily, confirmed by Jason on 2026-09-10. These must stay in
+ * step with the Google Business Profile; search results show whichever it
+ * trusts, and a mismatch is worse than either one alone.
  */
 
 // Read the real prices out of the packages so the range can't drift.
@@ -56,6 +57,22 @@ export const localBusinessSchema = {
     "@type": "City",
     name: `${area}, TX`,
   })),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "08:00",
+      closes: "20:00",
+    },
+  ],
   sameAs: [SOCIAL_LINKS.instagram],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
