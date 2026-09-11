@@ -137,10 +137,23 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
-// Service choices offered in the quote form. Derived from PRICING_PLANS so the
-// form can never drift out of sync with the packages and prices on the site.
+// Extras that can be added to any package. Priced per job rather than listed,
+// since condition varies -- the quote form is where they get costed.
+export const ADDON_SERVICES = [
+  "Carpet & Seat Extraction",
+  "Pet Hair Removal",
+  "Headlight Restoration",
+  "Trim Restoration",
+  "Clay Bar & Decontamination",
+  "Engine Bay Cleaning",
+] as const;
+
+// Everything the quote form offers, built from the packages and the add-ons so
+// the form can never drift out of sync with what the site advertises. Packages
+// first, then add-ons, with the escape hatch last.
 export const QUOTE_SERVICE_OPTIONS = [
   ...PRICING_PLANS.map((plan) => plan.name),
+  ...ADDON_SERVICES,
   "Not sure yet — help me choose",
 ] as const;
 

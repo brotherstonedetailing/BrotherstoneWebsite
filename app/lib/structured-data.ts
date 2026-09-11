@@ -1,4 +1,5 @@
 import {
+  ADDON_SERVICES,
   BUSINESS_NAME,
   CONTACT_EMAIL,
   PHONE_HREF,
@@ -74,6 +75,16 @@ export const localBusinessSchema = {
     },
   ],
   sameAs: [SOCIAL_LINKS.instagram],
+  // Add-ons carry no price because they are quoted per job, so they are listed
+  // as services offered rather than as priced offers.
+  makesOffer: ADDON_SERVICES.map((service) => ({
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: service,
+      serviceType: "Auto detailing",
+    },
+  })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Detailing packages",

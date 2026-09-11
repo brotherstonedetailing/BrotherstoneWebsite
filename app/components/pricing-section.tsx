@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
+  ADDON_SERVICES,
   PRICING_PLANS,
   VEHICLE_TIERS,
   type VehicleTier,
@@ -134,6 +135,29 @@ export default function PricingSection() {
               </Link>
             </article>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <div className="mx-auto mb-8 max-w-2xl text-center">
+            <h3 className="text-2xl font-bold text-[var(--text)] lg:text-3xl">
+              Add-On <span className="text-[var(--primary)]">Services</span>
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[var(--secondary)]">
+              Any of these can be added to a package. Mention what you need in
+              your quote and we&apos;ll price it together with the rest.
+            </p>
+          </div>
+
+          <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3">
+            {ADDON_SERVICES.map((service) => (
+              <li
+                key={service}
+                className="flex items-center justify-center rounded-lg border border-[var(--border)] bg-white px-4 py-4 text-center text-sm font-semibold text-[var(--text)] shadow-sm transition hover:border-[var(--primary)] hover:text-[var(--primary)]"
+              >
+                {service}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
