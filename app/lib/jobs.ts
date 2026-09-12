@@ -9,6 +9,10 @@ export type ClientJob = {
   description: string;
   highlights: string[];
   thumbnailImage: string;
+  // Vertical crop of the homepage card, as a CSS object-position (defaults to center)
+  thumbnailPosition?: string;
+  // Zoom the homepage card in (1 = no zoom), so the car fills the card like the others
+  thumbnailZoom?: number;
   exteriorImages: string[];
   interiorImages: string[];
 };
@@ -32,6 +36,7 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Engine bay cleaned and detailed",
     ],
     thumbnailImage: "/gtrExterior.jpg",
+    thumbnailPosition: "50% 64%",
     exteriorImages: ["/gtrExterior.jpg", "/gtrWheels.jpg", "/gtrEngineBay.jpg"],
     interiorImages: ["/gtrInterior.jpg", "/gtrCockpit.jpg", "/gtrSeats.jpg"],
   },
@@ -51,7 +56,8 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Exterior hand wash, decontamination, and paint sealant",
       "Wheels, tires, and trim dressed to a showroom finish",
     ],
-    thumbnailImage: "/m4thumbnail.jpg",
+    thumbnailImage: "/m4exterior.jpg",
+    thumbnailZoom: 1.25,
     exteriorImages: ["/m4exterior.jpg", "/m4Rear.jpg", "/m4Wheel.jpg"],
     interiorImages: ["/m4interior.jpg", "/m4Cockpit.jpg", "/m4RearSeats.jpg"],
   },

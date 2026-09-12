@@ -109,11 +109,15 @@ export default function Home() {
                 key={job.slug}
                 className="flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm"
               >
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <BlurImage
                     src={job.thumbnailImage}
                     fill
                     className="object-cover"
+                    style={{
+                      objectPosition: job.thumbnailPosition,
+                      transform: job.thumbnailZoom ? `scale(${job.thumbnailZoom})` : undefined,
+                    }}
                     alt={`${job.clientName}'s ${job.vehicle}`}
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 384px"
