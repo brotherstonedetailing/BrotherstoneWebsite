@@ -51,9 +51,9 @@ export const CLIENT_JOBS: ClientJob[] = [
       "Exterior hand wash, decontamination, and paint sealant",
       "Wheels, tires, and trim dressed to a showroom finish",
     ],
-    thumbnailImage: "/m4thumbnail.png",
-    exteriorImages: ["/m4exterior.png", "/m4Rear.jpg", "/m4Wheel.jpg"],
-    interiorImages: ["/m4interior.png", "/m4Cockpit.jpg", "/m4RearSeats.jpg"],
+    thumbnailImage: "/m4thumbnail.jpg",
+    exteriorImages: ["/m4exterior.jpg", "/m4Rear.jpg", "/m4Wheel.jpg"],
+    interiorImages: ["/m4interior.jpg", "/m4Cockpit.jpg", "/m4RearSeats.jpg"],
   },
   {
     slug: "porsche",

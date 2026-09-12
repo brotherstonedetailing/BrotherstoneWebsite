@@ -5,9 +5,9 @@ import { getPlaiceholder } from "plaiceholder";
 const IMAGE_PATHS = [
   "/hero.jpg",
   "/aboutUs.jpg",
-  "/m4thumbnail.png",
-  "/m4interior.png",
-  "/m4exterior.png",
+  "/m4thumbnail.jpg",
+  "/m4interior.jpg",
+  "/m4exterior.jpg",
   "/PorcheThumbNail.jpeg",
   "/PorscheInterior.jpeg",
   "/PorscheExterior.jpeg",
